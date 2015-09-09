@@ -1,5 +1,6 @@
 var now = require('../stores/plannerStore');
-console.log(now);
+var Month = require('./month.jsx');
+console.log(now());
 
 var Planner = React.createClass({
 
@@ -7,22 +8,13 @@ var Planner = React.createClass({
     return {currentMonth: now};
   },
 
+  handleClick: function () {
+    this.setState(now());
+  },
+
   render: function() {
     return (
-      <table>
-        <thead></thead>
-        <tbody>
-          {this.state.currentMonth.map(function(week) {
-            return (
-              <tr key={week}>
-                {week.map(function(day, i) {
-                  return <td key={i}>{day}</td>;
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <Month currentMonth={this.state.currentMonth} />
     );
   }
 });

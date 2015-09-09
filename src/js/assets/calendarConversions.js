@@ -7,7 +7,7 @@ var monthConversion = {
   Jun : [6, 'June'],
   Jul : [7, 'July'],
   Aug : [8, 'August'],
-  Sep : [9, 'Septmeber'],
+  Sep : [9, 'September'],
   Oct : [10, 'October'],
   Nov : [11, 'November'],
   Dec : [12, 'December']
