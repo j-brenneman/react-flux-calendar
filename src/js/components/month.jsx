@@ -1,11 +1,13 @@
 var Month = React.createClass({
   render: function () {
+    var that = this;
     return (
       <div>
         <div className="calendarHeader">
-          <button>Back</button>
+          <button onClick={this.props.handleDisplayMonth}>Back</button>
           <h1 className="monthName">{this.props.currentMonth.name}</h1>
-          <button>Forward</button>
+          <span>{this.props.currentMonth.year}</span>
+          <button onClick={this.props.handleDisplayMonth}>Forward</button>
         </div>
         <table>
           <thead>
@@ -18,7 +20,7 @@ var Month = React.createClass({
               return (
                 <tr key={week}>
                   {week.map(function(day, i) {
-                    return <td key={i}>{day}</td>;
+                    return day == parseInt(that.props.today) ? <td className="today" key={i}>{day}</td> : <td key={i}>{day}</td>
                   })}
                 </tr>
               );
