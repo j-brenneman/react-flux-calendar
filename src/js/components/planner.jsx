@@ -5,7 +5,7 @@ console.log(now());
 var Planner = React.createClass({
 
   getInitialState: function () {
-    return {currentMonth: now};
+    return {currentMonth: now()};
   },
 
   handleClick: function () {
