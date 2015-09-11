@@ -22,7 +22,9 @@ var Month = React.createClass({
               return (
                 <tr key={week}>
                   {week.map(function(day, i) {
-                    return day == parseInt(that.props.selectedDay) ? <td className="selectedDay" key={i}><span>{day}</span></td> : <td key={i}><span>{day}</span></td>
+                    return day == parseInt(that.props.selectedDay)
+                      ? <td className="selectedDay" key={i}><span>{day}</span></td>
+                      : <td key={i} onClick={that.props.handleSelectedDay}><span>{day}</span></td>
                   })}
                 </tr>
               );

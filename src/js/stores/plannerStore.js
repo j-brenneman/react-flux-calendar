@@ -15,6 +15,7 @@ function Month(date) {
   this.monthKey = monthConversion[date[0]][0];
   this.year = parseInt(date[1]);
   this.monthMatrix = date;
+  this.selectedDay = date[2];
   this.appts = {
     confirmed: [],
     undecided: []
@@ -26,7 +27,7 @@ Month.prototype.newMonth = function () {
 };
 
 var newMonth = function (date) {
-  current = new Month(date); 
+  current = new Month(date);
   current.newMonth();
   years[current.year] ? years[current.year].push(current) : years[current.year] = [current];
 }
@@ -45,6 +46,10 @@ var findMonth = function (direction) {
   } else {
     newMonth([monthConversion[newCurrent[0]], newCurrent[1]]);
   }
+}
+
+var selectedDay = function (dayNum) {
+  current.selectedDay = dayNum;
 }
 
 var plannerStore = objectAssign({}, EventEmitter.prototype, {
@@ -69,6 +74,10 @@ AppDispatcher.register(function (payload) {
       break;
     case appConstants.FIND_MONTH:
       findMonth(action.data);
+      plannerStore.emit(CHANGE_EVENT);
+      break;
+    case appConstants.SELECTED_DAY:
+      selectedDay(action.data);
       plannerStore.emit(CHANGE_EVENT);
       break;
     default:

@@ -6,10 +6,9 @@ var Planner = React.createClass({
 
   getInitialState: function () {
     var now = new Date().toString().split(' ');
-    plannerActions.newMonth([now[1], now[3]]);
+    plannerActions.newMonth([now[1], now[3], now[2]]);
     return {
       currentMonth: plannerStore.getCurrentMonth(),
-      selectedDay: now[2]
     }
   },
   componentDidMount: function () {
@@ -19,11 +18,10 @@ var Planner = React.createClass({
     plannerStore.removeChangeListener(this._onChange);
   },
   handleDisplayMonth: function (e) {
-    this.setState({selectedDay: null});
     e.target.innerHTML == 'Forward' ? plannerActions.findMonth(true) : plannerActions.findMonth(false);
   },
-  selectedDay: function (e) {
-
+  handleSelectedDay: function (e) {
+    plannerActions.selectedDay(e.target.childNodes[0].innerHTML);
   },
   _onChange: function () {
     this.setState({
@@ -33,7 +31,7 @@ var Planner = React.createClass({
   render: function() {
     return (
       <div className="container">
-        <Month currentMonth={this.state.currentMonth} handleDisplayMonth={this.handleDisplayMonth} selectedDay={this.state.selectedDay} />
+        <Month currentMonth={this.state.currentMonth} handleDisplayMonth={this.handleDisplayMonth} selectedDay={this.state.currentMonth.selectedDay} handleSelectedDay={this.handleSelectedDay} />
       </div>
     );
   }

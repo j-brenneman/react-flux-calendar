@@ -13,6 +13,12 @@ var plannerActions = {
       actionType: appConstants.FIND_MONTH,
       data: direction
     });
+  },
+  selectedDay: function (dayNum) {
+    AppDispatcher.handleViewAction({
+      actionType: appConstants.SELECTED_DAY,
+      data: dayNum
+    });
   }
 };
 
