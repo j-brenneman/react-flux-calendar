@@ -26,7 +26,7 @@ Month.prototype.newMonth = function () {
 };
 
 var newMonth = function (date) {
-  current = new Month(date); //new Date().toString().split(' ')
+  current = new Month(date); 
   current.newMonth();
   years[current.year] ? years[current.year].push(current) : years[current.year] = [current];
 }

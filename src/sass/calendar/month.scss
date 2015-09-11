@@ -1,12 +1,46 @@
+@import "../bootstrap-sass/stylesheets/_bootstrap";
+@import "./colors";
+
+body {
+  background: $background-cream;
+}
+
 .monthName {
   display: inline-block;
   margin: 0 2%;
 }
 
-.days {
-  margin: 0 auto;
+.calendarHeader {
+  margin-bottom: 2%;
 }
 
-.today {
-  background: AntiqueWhite; 
+.monthGrid {
+  background: #fff;
+  display: inline-block;
+  margin: 0 auto;
+  box-shadow: 10px 10px 2px $light-tan;
+
+  th {
+    text-align: center;
+    width: 10em;
+    height: 2em;
+  }
+  td {
+    padding: 3em;
+
+    span {
+      display: inline-block;
+      position: relative;
+      bottom: 2.7em;
+      left: 4em;
+    }
+  }
+}
+
+.selectedDay {
+  background: $light-tan;
+}
+
+.table {
+  width: auto;
 }
