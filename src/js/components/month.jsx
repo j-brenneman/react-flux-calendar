@@ -2,19 +2,19 @@ var Month = React.createClass({
   render: function () {
     var that = this;
     return (
-      <div className="text-center row">
+      <section>
         <div className="calendarHeader">
-          <button className="btn btn-primary" onClick={this.props.handleDisplayMonth}>Back</button>
+          <button className="btn btn-primary" onClick={this.props.handlers.displayMonth}>Back</button>
           <div className="monthName">
             <h1>{this.props.currentMonth.name}</h1>
             <h4>{this.props.currentMonth.year}</h4>
           </div>
-          <button className="btn btn-primary" onClick={this.props.handleDisplayMonth}>Forward</button>
+          <button className="btn btn-primary" onClick={this.props.handlers.displayMonth}>Forward</button>
         </div>
         <table className="monthGrid table-bordered">
           <thead>
             <tr>
-              <th>Monday</th> <th>Tuesday</th> <th>Wednesday</th> <th>Thursday</th> <th>Friday</th> <th>Saturday</th> <th>Sunday</th>
+              <th>Sunday</th> <th>Monday</th> <th>Tuesday</th> <th>Wednesday</th> <th>Thursday</th> <th>Friday</th> <th>Saturday</th>
             </tr>
           </thead>
           <tbody>
@@ -22,16 +22,16 @@ var Month = React.createClass({
               return (
                 <tr key={week}>
                   {week.map(function(day, i) {
-                    return day == parseInt(that.props.selectedDay)
+                    return day == parseInt(this.props.currentMonth.selectedDay)
                       ? <td className="selectedDay" key={i}><span>{day}</span></td>
-                      : <td key={i} onClick={that.props.handleSelectedDay}><span>{day}</span></td>
-                  })}
+                      : <td key={i} onClick={this.props.handlers.selectedDay}><span>{day}</span></td>
+                  },this)}
                 </tr>
               );
-            })}
+            },this)}
           </tbody>
         </table>
-      </div>
+      </section>
     );
   }
 })

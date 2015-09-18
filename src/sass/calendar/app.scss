@@ -1,0 +1,8 @@
+@import "../bootstrap-sass/stylesheets/_bootstrap";
+@import "./colors";
+@import "./month";
+@import "./taskManager";
+
+body {
+  background: $background-cream;
+}

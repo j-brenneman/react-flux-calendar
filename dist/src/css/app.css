@@ -6060,9 +6060,6 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-body {
-  background: #F0E8E6; }
-
 .monthName {
   display: inline-block;
   margin: 0 2%; }
@@ -6085,10 +6082,27 @@ body {
       display: inline-block;
       position: relative;
       bottom: 2.7em;
-      left: 4em; }
+      left: 3.8em; }
 
 .selectedDay {
   background: #E2D4CB; }
 
 .table {
   width: auto; }
+
+.taskHeader {
+  margin-bottom: 13%; }
+
+.taskContainer {
+  border: 2px solid #ddd;
+  background-color: #fff;
+  text-align: left; }
+  .taskContainer .taskSection {
+    border-bottom: 1px solid #ddd; }
+    .taskContainer .taskSection span {
+      margin: 0 2%; }
+    .taskContainer .taskSection h3 {
+      display: inline-block; }
+
+body {
+  background: #F0E8E6; }

@@ -1,4 +1,5 @@
 var Month = require('./month.jsx');
+var TaskManager = require('./taskManager.jsx');
 var plannerStore = require('../stores/plannerStore.js');
 var plannerActions = require('../Action.js');
 
@@ -17,11 +18,13 @@ var Planner = React.createClass({
   componentWillUnmount: function () {
     plannerStore.removeChangeListener(this._onChange);
   },
-  handleDisplayMonth: function (e) {
-    e.target.innerHTML == 'Forward' ? plannerActions.findMonth(true) : plannerActions.findMonth(false);
-  },
-  handleSelectedDay: function (e) {
-    plannerActions.selectedDay(e.target.childNodes[0].innerHTML);
+  handlers: {
+    selectedDay:  function (e) {
+      plannerActions.selectedDay(e.target.childNodes[0].innerHTML);
+    },
+    displayMonth: function (e) {
+      e.target.innerHTML == 'Forward' ? plannerActions.findMonth(true) : plannerActions.findMonth(false);
+    }
   },
   _onChange: function () {
     this.setState({
@@ -30,8 +33,15 @@ var Planner = React.createClass({
   },
   render: function() {
     return (
-      <div className="container">
-        <Month currentMonth={this.state.currentMonth} handleDisplayMonth={this.handleDisplayMonth} selectedDay={this.state.currentMonth.selectedDay} handleSelectedDay={this.handleSelectedDay} />
+      <div className="container-fluid">
+        <div className="row text-center">
+          <div className="col-md-8">
+            <Month currentMonth={this.state.currentMonth} handlers={this.handlers} />
+          </div>
+          <div className="col-md-4">
+            <TaskManager currentMonth={this.state.currentMonth} />
+          </div>
+        </div>
       </div>
     );
   }

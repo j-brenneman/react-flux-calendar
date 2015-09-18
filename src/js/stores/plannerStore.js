@@ -15,15 +15,19 @@ function Month(date) {
   this.monthKey = monthConversion[date[0]][0];
   this.year = parseInt(date[1]);
   this.monthMatrix = date;
-  this.selectedDay = date[2];
+  this.selectedDay = date[2] || 1;
   this.appts = {
     confirmed: [],
     undecided: []
   };
 }
 
+function Events(event) {
+
+}
+
 Month.prototype.newMonth = function () {
-  this.monthMatrix = new calendar.Calendar(1).monthdayscalendar(this.monthMatrix[1], monthConversion[this.monthMatrix[0]][0]);
+  this.monthMatrix = new calendar.Calendar(calendar.SUNDAY).monthdayscalendar(this.monthMatrix[1], monthConversion[this.monthMatrix[0]][0]);
 };
 
 var newMonth = function (date) {
@@ -60,7 +64,7 @@ var plannerStore = objectAssign({}, EventEmitter.prototype, {
     this.removeListener(CHANGE_EVENT, cb);
   },
   getCurrentMonth: function () {
-    console.log(years);
+    console.log(years, current);
     return current;
   }
 });
