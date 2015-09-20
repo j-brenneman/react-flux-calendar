@@ -1,0 +1,36 @@
+.selectedDayHeader {
+
+  input {
+    text-align: center;
+    display: inline-block;
+    width: 32%;
+    padding: 0.5%;
+    margin: 0.6%;
+  }
+
+  textarea {
+    text-align: center;
+    width: 75%;
+    padding: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 0.75%;
+    border: 1px solid #ddd;
+    color: #A9A9A9;
+  }
+
+  span {
+    display: inline-block;
+    font-size: 30px;
+    position: absolute;
+    top: 2.7em;
+    left: 12.05em;
+    color: #A9A9A9;
+  }
+
+  span:hover {
+    color: darken(#428bca, 6.5%);
+    cursor: pointer;
+  }
+
+}

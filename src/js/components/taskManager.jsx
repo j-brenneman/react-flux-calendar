@@ -29,17 +29,17 @@ var TaskManager = React.createClass({
         <div className="taskContainer">
           <div className="taskSection">
             <div onClick={this.handlers.dateToggle.bind(this)}>
-              <span className={"glyphicon glyphicon-triangle-" + (this.state.dateToggle ? "bottom" : "right")}></span>
+              <span className={"taskIcon glyphicon glyphicon-triangle-" + (this.state.dateToggle ? "bottom" : "right")}></span>
               <h3>{this.props.currentMonth.name +" "+ this.props.currentMonth.selectedDay +", "+ this.props.currentMonth.year}</h3>
             </div>
-            {this.state.dateToggle ? <SelectedDay /> : null}
+            {this.state.dateToggle ? <SelectedDay currentMonth={this.props.currentMonth} addEvents={this.props.addEvents} /> : null}
           </div>
           <div className="taskSection">
-            <span className="glyphicon glyphicon-triangle-right"></span>
+            <span className="taskIcon glyphicon glyphicon-triangle-right"></span>
             <h3>Events</h3>
           </div>
           <div className="taskSection">
-            <span className="glyphicon glyphicon-triangle-right"></span>
+            <span className="taskIcon glyphicon glyphicon-triangle-right"></span>
             <h3>ToDo's</h3>
           </div>
         </div>

@@ -6,13 +6,20 @@
   border: 2px solid #ddd;
   background-color: #fff;
   text-align: left;
+  padding: 2%;
 
   .taskSection {
     border-bottom: 1px solid #ddd;
 
-    span {
+    .taskIcon {
       margin: 0 2%;
     }
+
+    .taskIcon:hover {
+      color: darken(#428bca, 6.5%);
+      cursor: pointer;
+    }
+
     h3 {
       display: inline-block;
     }

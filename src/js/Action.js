@@ -19,6 +19,12 @@ var plannerActions = {
       actionType: appConstants.SELECTED_DAY,
       data: dayNum
     });
+  },
+  addEvents: function (evt) {
+    AppDispatcher.handleViewAction({
+      actionType: appConstants.ADD_EVENTS,
+      data: evt
+    });
   }
 };
 

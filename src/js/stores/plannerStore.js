@@ -16,14 +16,10 @@ function Month(date) {
   this.year = parseInt(date[1]);
   this.monthMatrix = date;
   this.selectedDay = date[2] || 1;
-  this.appts = {
-    confirmed: [],
-    undecided: []
+  this.items = {
+    events: {},
+    todos: {}
   };
-}
-
-function Events(event) {
-
 }
 
 Month.prototype.newMonth = function () {
@@ -56,6 +52,10 @@ var selectedDay = function (dayNum) {
   current.selectedDay = dayNum;
 }
 
+var addEvents = function (evt) {
+  current.items.events[evt.day] ? current.items.events[evt.day].push(evt) : current.items.events[evt.day] = [evt];
+}
+
 var plannerStore = objectAssign({}, EventEmitter.prototype, {
   addChangeListener: function (cb) {
     this.on(CHANGE_EVENT, cb);
@@ -84,6 +84,9 @@ AppDispatcher.register(function (payload) {
       selectedDay(action.data);
       plannerStore.emit(CHANGE_EVENT);
       break;
+    case appConstants.ADD_EVENTS:
+      addEvents(action.data);
+      plannerStore.emit(CHANGE_EVENT);
     default:
       return true;
   }

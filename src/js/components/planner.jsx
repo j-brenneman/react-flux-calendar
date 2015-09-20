@@ -1,4 +1,5 @@
 var Month = require('./month.jsx');
+var SelectedDay = require('./selectedDay.jsx');
 var TaskManager = require('./taskManager.jsx');
 var plannerStore = require('../stores/plannerStore.js');
 var plannerActions = require('../Action.js');
@@ -24,6 +25,9 @@ var Planner = React.createClass({
     },
     displayMonth: function (e) {
       e.target.innerHTML == 'Forward' ? plannerActions.findMonth(true) : plannerActions.findMonth(false);
+    },
+    addEvents: function (e) {
+      plannerActions.addEvents(e);
     }
   },
   _onChange: function () {
@@ -39,7 +43,7 @@ var Planner = React.createClass({
             <Month currentMonth={this.state.currentMonth} handlers={this.handlers} />
           </div>
           <div className="col-md-4">
-            <TaskManager currentMonth={this.state.currentMonth} />
+            <TaskManager currentMonth={this.state.currentMonth} addEvents={this.handlers.addEvents} />
           </div>
         </div>
       </div>
