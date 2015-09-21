@@ -3,7 +3,7 @@ var appConstants = require('../Constants.js');
 var objectAssign = require('react/lib/Object.assign');
 var EventEmitter = require('events').EventEmitter;
 var calendar = require('node-calendar');
-var monthConversion = require('../assets/calendarConversions').monthConversion;
+var assets = require('../assets/calendarConversions');
 
 var CHANGE_EVENT = 'change';
 
@@ -11,8 +11,8 @@ var years = {};
 var current = {};
 
 function Month(date) {
-  this.name = monthConversion[date[0]][1];
-  this.monthKey = monthConversion[date[0]][0];
+  this.name = assets.monthConversion[date[0]][1];
+  this.monthKey = assets.monthConversion[date[0]][0];
   this.year = parseInt(date[1]);
   this.monthMatrix = date;
   this.selectedDay = date[2] || 1;
@@ -23,7 +23,7 @@ function Month(date) {
 }
 
 Month.prototype.newMonth = function () {
-  this.monthMatrix = new calendar.Calendar(calendar.SUNDAY).monthdayscalendar(this.monthMatrix[1], monthConversion[this.monthMatrix[0]][0]);
+  this.monthMatrix = new calendar.Calendar(calendar.SUNDAY).monthdayscalendar(this.monthMatrix[1], assets.monthConversion[this.monthMatrix[0]][0]);
 };
 
 var newMonth = function (date) {
@@ -42,9 +42,9 @@ var findMonth = function (direction) {
       if(mon.monthKey === newCurrent[0])
         return mon;
     })
-    checker.length > 0 ? current = checker[0] : newMonth([monthConversion[newCurrent[0]], newCurrent[1]]);
+    checker.length > 0 ? current = checker[0] : newMonth([assets.monthConversion[newCurrent[0]], newCurrent[1]]);
   } else {
-    newMonth([monthConversion[newCurrent[0]], newCurrent[1]]);
+    newMonth([assets.monthConversion[newCurrent[0]], newCurrent[1]]);
   }
 }
 
@@ -54,6 +54,7 @@ var selectedDay = function (dayNum) {
 
 var addEvents = function (evt) {
   current.items.events[evt.day] ? current.items.events[evt.day].push(evt) : current.items.events[evt.day] = [evt];
+  current.items.events[evt.day].sort(assets.sortedEvents);  
 }
 
 var plannerStore = objectAssign({}, EventEmitter.prototype, {

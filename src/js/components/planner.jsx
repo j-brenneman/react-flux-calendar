@@ -21,8 +21,8 @@ var Planner = React.createClass({
     plannerStore.removeChangeListener(this._onChange);
   },
   handlers: {
-    selectedDay:  function (e) {
-      plannerActions.selectedDay(e.target.childNodes[1].innerHTML);
+    selectedDay:  function (day) {
+      plannerActions.selectedDay(day);
     },
     displayMonth: function (e) {
       monthAnimation();

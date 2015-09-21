@@ -3,7 +3,7 @@ var monthConversion = {
   Feb : [2, 'February'],
   Mar : [3, 'March'],
   Apr : [4, 'April'],
-  May : [5, 'March'],
+  May : [5, 'May'],
   Jun : [6, 'June'],
   Jul : [7, 'July'],
   Aug : [8, 'August'],
@@ -22,7 +22,7 @@ var monthConversion = {
   9 : 'Sep',
   10 : 'Oct',
   11 : 'Nov',
-  12 : 'Dec'
+  12 : 'Dec',
 }
 
 var monthAnimation = function () {
@@ -31,7 +31,12 @@ var monthAnimation = function () {
   setTimeout(function(){ mon.remove('animated', 'zoomIn') }, 1000);
 }
 
+var sortedEvents = function (evt1, evt2) {
+  return parseInt(evt1.time.start) - parseInt(evt2.time.start);
+}
+
 module.exports = {
   monthConversion: monthConversion,
-  monthAnimation: monthAnimation
+  monthAnimation: monthAnimation,
+  sortedEvents: sortedEvents
 }

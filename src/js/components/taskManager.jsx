@@ -1,4 +1,5 @@
-var SelectedDay = require('./selectedDay.jsx')
+var SelectedDay = require('./selectedDay.jsx');
+var Events = require('./events.jsx');
 
 var TaskManager = React.createClass({
 
@@ -15,10 +16,12 @@ var TaskManager = React.createClass({
         dateToggle: this.state.dateToggle ? this.state.dateToggle = false : this.state.dateToggle = true
       })
     },
-    eventsToggle: function (e) {
-
+    eventsToggle: function () {
+      this.setState({
+        eventsToggle: this.state.eventsToggle ? this.state.eventsToggle = false : this.state.eventsToggle = true
+      })
     },
-    toDoToggle: function (e) {
+    toDoToggle: function () {
 
     }
   },
@@ -35,8 +38,11 @@ var TaskManager = React.createClass({
             {this.state.dateToggle ? <SelectedDay currentMonth={this.props.currentMonth} addEvents={this.props.addEvents} /> : null}
           </div>
           <div className="taskSection">
-            <span className="taskIcon glyphicon glyphicon-triangle-right"></span>
-            <h3>Events</h3>
+            <div onClick={this.handlers.eventsToggle.bind(this)}>
+              <span className={"taskIcon glyphicon glyphicon-triangle-" + (this.state.eventsToggle ? "bottom" : "right")}></span>
+              <h3>Events</h3>
+            </div>
+            {this.state.eventsToggle ? <Events currentMonth={this.props.currentMonth}/> : null}
           </div>
           <div className="taskSection">
             <span className="taskIcon glyphicon glyphicon-triangle-right"></span>

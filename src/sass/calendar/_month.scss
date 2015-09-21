@@ -18,15 +18,21 @@
     width: 10em;
     height: 2em;
   }
+
   td {
     width: 8em;
     height: 7.8em;
+    vertical-align: text-top;
 
-    span {
-      display: inline-block;
-      position: relative;
-      bottom: 2.9em;
-      left: 3.8em;
+    b p {
+      display: block;
+      text-align: right;
+      margin-top: 1%;
+      margin-right: 2.5%;
+    }
+
+    p {
+      text-align: left;
     }
   }
 }
