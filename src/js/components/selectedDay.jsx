@@ -4,6 +4,9 @@ var SelectedDay = React.createClass ({
     this.props.addEvents({
       day: this.props.currentMonth.selectedDay, time: {start: form[1].value, end: form[2].value}, title: form[0].value, description: form[3].value
     });
+    for (var i = 0; i < form.length; i++) {
+      form[i].value = null;
+    }
   },
   render: function () {
     return (

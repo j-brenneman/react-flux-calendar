@@ -3,6 +3,7 @@ var SelectedDay = require('./selectedDay.jsx');
 var TaskManager = require('./taskManager.jsx');
 var plannerStore = require('../stores/plannerStore.js');
 var plannerActions = require('../Action.js');
+var monthAnimation = require('../assets/calendarConversions').monthAnimation;
 
 var Planner = React.createClass({
 
@@ -21,9 +22,10 @@ var Planner = React.createClass({
   },
   handlers: {
     selectedDay:  function (e) {
-      plannerActions.selectedDay(e.target.childNodes[0].innerHTML);
+      plannerActions.selectedDay(e.target.childNodes[1].innerHTML);
     },
     displayMonth: function (e) {
+      monthAnimation();
       e.target.innerHTML == 'Forward' ? plannerActions.findMonth(true) : plannerActions.findMonth(false);
     },
     addEvents: function (e) {
@@ -37,7 +39,7 @@ var Planner = React.createClass({
   },
   render: function() {
     return (
-      <div className="container-fluid">
+      <div className="animated zoomIn container-fluid">
         <div className="row text-center">
           <div className="col-md-8">
             <Month currentMonth={this.state.currentMonth} handlers={this.handlers} />

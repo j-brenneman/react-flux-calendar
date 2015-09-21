@@ -25,4 +25,13 @@ var monthConversion = {
   12 : 'Dec'
 }
 
-module.exports = monthConversion;
+var monthAnimation = function () {
+  var mon = document.getElementsByClassName('monthGrid')[0].classList;
+  mon.add('animated', 'zoomIn');
+  setTimeout(function(){ mon.remove('animated', 'zoomIn') }, 1000);
+}
+
+module.exports = {
+  monthConversion: monthConversion,
+  monthAnimation: monthAnimation
+}

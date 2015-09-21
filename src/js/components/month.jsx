@@ -1,3 +1,5 @@
+var Day = require('./Day.jsx');
+
 var Month = React.createClass({
   render: function () {
     var that = this;
@@ -23,20 +25,8 @@ var Month = React.createClass({
                 <tr key={week}>
                   {week.map(function(day, i) {
                     return day == parseInt(this.props.currentMonth.selectedDay)
-                      ? <td className="selectedDay" key={i}>
-                          {
-                           this.props.currentMonth.items.events[parseInt(day)]
-                           ? this.props.currentMonth.items.events[parseInt(day)].map(function (evt) {
-                              return <ul>
-                                <li>{evt.title}</li>
-                                <li>{evt.time.start +" - "+ evt.time.end}</li>
-                              </ul>
-                             })
-                           : null
-                          }
-                          <span>{day}</span>
-                        </td>
-                      : <td key={i} onClick={this.props.handlers.selectedDay}><span>{day}</span></td>
+                      ? <td className="selectedDay" key={i}><Day day={day} currentMonth={this.props.currentMonth} /><span>{day}</span></td>
+                    : <td onClick={this.props.handlers.selectedDay} key={i}><Day day={day} currentMonth={this.props.currentMonth} /><span>{day}</span></td>
                   },this)}
                 </tr>
               );

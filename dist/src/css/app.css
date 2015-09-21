@@ -8399,11 +8399,12 @@ Copyright (c) 2015 Daniel Eden
     width: 10em;
     height: 2em; }
   .monthGrid td {
-    padding: 3em; }
+    width: 8em;
+    height: 7.8em; }
     .monthGrid td span {
       display: inline-block;
       position: relative;
-      bottom: 2.7em;
+      bottom: 2.9em;
       left: 3.8em; }
 
 .selectedDay {

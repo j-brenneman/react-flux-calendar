@@ -3,7 +3,7 @@ var appConstants = require('../Constants.js');
 var objectAssign = require('react/lib/Object.assign');
 var EventEmitter = require('events').EventEmitter;
 var calendar = require('node-calendar');
-var monthConversion = require('../assets/calendarConversions');
+var monthConversion = require('../assets/calendarConversions').monthConversion;
 
 var CHANGE_EVENT = 'change';
 
