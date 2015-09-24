@@ -1,3 +1,4 @@
+
 .taskHeader {
   margin-bottom: 13%;
 }
@@ -7,6 +8,9 @@
   background-color: #fff;
   text-align: left;
   padding: 2%;
+  max-height: 41.5em;
+  overflow: auto;
+  box-shadow: 10px 10px 2px $light-tan; 
 
   .taskSection {
     border-bottom: 1px solid #ddd;

@@ -25,14 +25,20 @@ var monthConversion = {
   12 : 'Dec',
 }
 
-var monthAnimation = function () {
-  var mon = document.getElementsByClassName('monthGrid')[0].classList;
-  mon.add('animated', 'zoomIn');
-  setTimeout(function(){ mon.remove('animated', 'zoomIn') }, 1000);
+var monthAnimation = function (direction) {
+  if(direction) {
+    var mon = document.getElementsByClassName('monthGrid')[0].classList;
+    mon.add('animated', 'bounceInLeft');
+    setTimeout(function(){ mon.remove('animated', 'bounceInLeft') }, 1000);
+  } else {
+    var mon = document.getElementsByClassName('monthGrid')[0].classList;
+    mon.add('animated', 'bounceInRight');
+    setTimeout(function(){ mon.remove('animated', 'bounceInRight') }, 1000);
+  }
 }
 
 var sortedEvents = function (evt1, evt2) {
-  return parseInt(evt1.time.start) - parseInt(evt2.time.start);
+  return parseInt(evt1.time.start.replace(':', '')) - parseInt(evt2.time.start.replace(':', ''));
 }
 
 module.exports = {

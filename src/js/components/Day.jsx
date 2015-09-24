@@ -1,11 +1,11 @@
 var Day = React.createClass({
   render: function () {
     return (
-      <div>
+      <div className="monthDay">
         {
          this.props.currentMonth.items.events[parseInt(this.props.day)]
-         ? this.props.currentMonth.items.events[parseInt(this.props.day)].map(function (evt) {
-            return <p>{evt.title}</p>
+         ? this.props.currentMonth.items.events[parseInt(this.props.day)].map(function (evt, i) {
+            return <p key={i}>{evt.title}</p>
            })
          : null
         }

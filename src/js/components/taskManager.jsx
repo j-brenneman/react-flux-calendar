@@ -27,7 +27,7 @@ var TaskManager = React.createClass({
   },
   render: function () {
     return (
-      <section>
+      <section className="taskManager">
         <h1 className="taskHeader">Task Manager</h1>
         <div className="taskContainer">
           <div className="taskSection">
@@ -42,7 +42,7 @@ var TaskManager = React.createClass({
               <span className={"taskIcon glyphicon glyphicon-triangle-" + (this.state.eventsToggle ? "bottom" : "right")}></span>
               <h3>Events</h3>
             </div>
-            {this.state.eventsToggle ? <Events currentMonth={this.props.currentMonth}/> : null}
+            {this.state.eventsToggle ? <Events currentMonth={this.props.currentMonth} deleteEvents={this.props.deleteEvents} /> : null}
           </div>
           <div className="taskSection">
             <span className="taskIcon glyphicon glyphicon-triangle-right"></span>

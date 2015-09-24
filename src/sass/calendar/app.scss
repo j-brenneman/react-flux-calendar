@@ -1,9 +1,11 @@
 @import "../bootstrap-sass/stylesheets/_bootstrap";
 @import "../animate/_animate";
+@import "../font-awesome-sass/scss/_font-awesome";
 @import "./colors";
 @import "./month";
 @import "./taskManager";
 @import "./selectedDay";
+@import "./dayEvents";
 
 body {
   background: $background-cream;

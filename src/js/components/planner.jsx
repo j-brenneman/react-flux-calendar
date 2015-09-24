@@ -25,11 +25,14 @@ var Planner = React.createClass({
       plannerActions.selectedDay(day);
     },
     displayMonth: function (e) {
-      monthAnimation();
+      monthAnimation(e.target.innerHTML == 'Forward' ? true : false);
       e.target.innerHTML == 'Forward' ? plannerActions.findMonth(true) : plannerActions.findMonth(false);
     },
     addEvents: function (e) {
       plannerActions.addEvents(e);
+    },
+    deleteEvents: function (e) {
+      plannerActions.deleteEvents(e);
     }
   },
   _onChange: function () {
@@ -45,7 +48,7 @@ var Planner = React.createClass({
             <Month currentMonth={this.state.currentMonth} handlers={this.handlers} />
           </div>
           <div className="col-md-4">
-            <TaskManager currentMonth={this.state.currentMonth} addEvents={this.handlers.addEvents} />
+            <TaskManager currentMonth={this.state.currentMonth} addEvents={this.handlers.addEvents} deleteEvents={this.handlers.deleteEvents} />
           </div>
         </div>
       </div>

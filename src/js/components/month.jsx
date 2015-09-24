@@ -26,12 +26,16 @@ var Month = React.createClass({
                   {week.map(function(day, i) {
                     return day == parseInt(this.props.currentMonth.selectedDay)
                       ? <td className="selectedDay" key={i}>
-                          <b><p>{day}</p></b>
-                          <Day day={day} currentMonth={this.props.currentMonth} />
+                          <div className="scroll">
+                            <b><p>{day}</p></b>
+                            <Day day={day} currentMonth={this.props.currentMonth} />
+                          </div>
                         </td>
                       : <td onClick={this.props.handlers.selectedDay.bind(this, day)} key={i}>
-                          <b><p>{day}</p></b>
-                          <Day day={day} currentMonth={this.props.currentMonth} />
+                          <div className="scroll">
+                            <b><p>{day}</p></b>
+                            <Day day={day} currentMonth={this.props.currentMonth} />
+                          </div>
                         </td>
                   },this)}
                 </tr>

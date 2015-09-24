@@ -54,7 +54,11 @@ var selectedDay = function (dayNum) {
 
 var addEvents = function (evt) {
   current.items.events[evt.day] ? current.items.events[evt.day].push(evt) : current.items.events[evt.day] = [evt];
-  current.items.events[evt.day].sort(assets.sortedEvents);  
+  current.items.events[evt.day].sort(assets.sortedEvents);
+}
+
+var deleteEvents = function (day, evtIndex) {
+  current.items.events[day].splice(evtIndex, 1);
 }
 
 var plannerStore = objectAssign({}, EventEmitter.prototype, {
@@ -88,6 +92,11 @@ AppDispatcher.register(function (payload) {
     case appConstants.ADD_EVENTS:
       addEvents(action.data);
       plannerStore.emit(CHANGE_EVENT);
+      break;
+    case appConstants.DELETE_EVENTS:
+      deleteEvents(action.data.day, action.data.evtIndex);
+      plannerStore.emit(CHANGE_EVENT);
+      break;
     default:
       return true;
   }

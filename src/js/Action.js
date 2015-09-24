@@ -25,6 +25,12 @@ var plannerActions = {
       actionType: appConstants.ADD_EVENTS,
       data: evt
     });
+  },
+  deleteEvents: function (evt) {
+    AppDispatcher.handleViewAction({
+      actionType: appConstants.DELETE_EVENTS,
+      data: evt
+    })
   }
 };
 

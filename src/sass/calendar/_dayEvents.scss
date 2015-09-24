@@ -1,0 +1,46 @@
+.dayEvents {
+
+  .dayEventContainer {
+    border-bottom: 2px solid $background-cream;
+    margin-bottom: 3%;
+  }
+
+  input {
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+    padding: 0.5%;
+    margin: 0.6%;
+  }
+
+  textarea {
+    text-align: center;
+    width: 75%;
+    padding: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 0.75%;
+    border: 1px solid #ddd;
+    color: #A9A9A9;
+  }
+
+  .eventMarker {
+    font-size: 16px;
+    color: darken(#428bca, 6.5%);
+  }
+
+  .deleteEvent {
+    display: inline-block;
+    font-size: 30px;
+    position: relative;
+    top: -0.6em;
+    left: 1.25em;
+    color: #A9A9A9;
+  }
+
+  .deleteEvent:hover {
+    color: #D75452;
+    cursor: pointer;
+  }
+
+}

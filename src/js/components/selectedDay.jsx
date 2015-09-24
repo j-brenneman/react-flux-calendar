@@ -7,6 +7,7 @@ var SelectedDay = React.createClass ({
     for (var i = 0; i < form.length; i++) {
       form[i].value = null;
     }
+    form[form.length -1].value = 'Description';
   },
   render: function () {
     return (

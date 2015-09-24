@@ -20,19 +20,30 @@
   }
 
   td {
-    width: 8em;
-    height: 7.8em;
     vertical-align: text-top;
+
 
     b p {
       display: block;
       text-align: right;
       margin-top: 1%;
       margin-right: 2.5%;
+      color: #000;
     }
 
     p {
-      text-align: left;
+      text-align: center;
+      color: darken(#428bca, 6.5%);
+    }
+
+    .scroll {
+      height: 7.8em;
+      display: flex;
+      flex-direction: column;
+
+      .monthDay {
+        overflow: auto;
+      }
     }
   }
 }
