@@ -1,7 +1,8 @@
 .dayEvents {
 
   .dayEventContainer {
-    border-bottom: 2px solid $background-cream;
+    border-bottom: 1px solid darken(#428bca, 6.5%);
+    border-right: 1px solid darken(#428bca, 6.5%);
     margin-bottom: 3%;
   }
 

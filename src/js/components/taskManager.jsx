@@ -1,30 +1,15 @@
 var SelectedDay = require('./selectedDay.jsx');
 var Events = require('./events.jsx');
+var ToDo = require('./toDo.jsx');
+var taskHelpers = require('../assets/taskHelpers.js');
 
 var TaskManager = React.createClass({
 
   getInitialState: function () {
-    return {
-      dateToggle: true,
-      eventsToggle: false,
-      toDoToggle: false
-    }
+    return taskHelpers.toggleState
   },
-  handlers: {
-    dateToggle: function () {
-      this.setState({
-        dateToggle: this.state.dateToggle ? this.state.dateToggle = false : this.state.dateToggle = true
-      })
-    },
-    eventsToggle: function () {
-      this.setState({
-        eventsToggle: this.state.eventsToggle ? this.state.eventsToggle = false : this.state.eventsToggle = true
-      })
-    },
-    toDoToggle: function () {
+  handlers: taskHelpers.handlers,
 
-    }
-  },
   render: function () {
     return (
       <section className="taskManager">
@@ -45,8 +30,11 @@ var TaskManager = React.createClass({
             {this.state.eventsToggle ? <Events currentMonth={this.props.currentMonth} deleteEvents={this.props.deleteEvents} /> : null}
           </div>
           <div className="taskSection">
-            <span className="taskIcon glyphicon glyphicon-triangle-right"></span>
-            <h3>ToDo's</h3>
+            <div onClick={this.handlers.toDoToggle.bind(this)}>
+              <span className={"taskIcon glyphicon glyphicon-triangle-" + (this.state.toDoToggle ? "bottom" : "right")}></span>
+              <h3>ToDo's</h3>
+            </div>
+            {this.state.toDoToggle ? <ToDo currentMonth={this.props.currentMonth} /> : null}            
           </div>
         </div>
       </section>

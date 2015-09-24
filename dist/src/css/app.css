@@ -10492,7 +10492,8 @@ Copyright (c) 2015 Daniel Eden
   cursor: pointer; }
 
 .dayEvents .dayEventContainer {
-  border-bottom: 2px solid #F0E8E6;
+  border-bottom: 1px solid #337ab7;
+  border-right: 1px solid #337ab7;
   margin-bottom: 3%; }
 
 .dayEvents input {
