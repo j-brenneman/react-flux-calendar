@@ -11,7 +11,8 @@ var concat = require('gulp-concat');
 
 var path = {
   HTML: 'src/index.html',
-  SASS: ['src/sass/calendar/app.scss', 'src/sass/calendar/_month.scss', 'src/sass/calendar/_taskManager.scss', 'src/sass/calendar/_selectedDay.scss', 'src/sass/calendar/_dayEvents.scss'],
+  SASS: ['src/sass/calendar/app.scss', 'src/sass/calendar/_month.scss', 'src/sass/calendar/_taskManager.scss',
+         'src/sass/calendar/_selectedDay.scss', 'src/sass/calendar/_dayEvents.scss', 'src/sass/calendar/_dayToDos.scss'],
   MINIFIED_OUT: 'build.min.js',
   OUT: 'build.js',
   DEST: 'dist',

@@ -1,31 +1,17 @@
-.selectedDayContainer {
+.dayToDos {
 
-  .categoryOne {
+  .dayToDoContainer {
     border-bottom: 1px solid darken(#428bca, 6.5%);
-
-    input {
-      margin-right: 2%;
-    }
+    border-right: 1px solid darken(#428bca, 6.5%);
+    margin-bottom: 3%;
   }
 
   input {
     text-align: center;
     display: inline-block;
-    width: 32%;
+    width: 30%;
     padding: 0.5%;
     margin: 0.6%;
-  }
-
-  .time {
-    display: inline-block;
-    width: 32%;
-    padding-left: 2%;
-
-    input {
-      width: 80%;
-    }
-
-
   }
 
   textarea {
@@ -39,7 +25,13 @@
     color: #A9A9A9;
   }
 
-  .btnSpan {
+  .toDoMarker {
+    font-size: 18px;
+    margin-right: 1%;
+    color: darken(#428bca, 6.5%);
+  }
+
+  .deleteToDo {
     display: inline-block;
     font-size: 30px;
     position: relative;
@@ -48,13 +40,9 @@
     color: #A9A9A9;
   }
 
-  .btnSpan:hover {
-    color: darken(#428bca, 6.5%);
+  .deleteToDo:hover {
+    color: #D75452;
     cursor: pointer;
-  }
-
-  .toDoHeader {
-    margin-bottom: 0;
   }
 
   .toDoPriority {

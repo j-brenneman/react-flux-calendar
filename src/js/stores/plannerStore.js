@@ -61,6 +61,10 @@ var deleteEvents = function (day, evtIndex) {
   current.items.events[day].splice(evtIndex, 1);
 }
 
+var addToDo = function (toDo) {
+  current.items.todos[toDo.day] ? current.items.todos[toDo.day].push(toDo) : current.items.todos[toDo.day] = [toDo];
+}
+
 var plannerStore = objectAssign({}, EventEmitter.prototype, {
   addChangeListener: function (cb) {
     this.on(CHANGE_EVENT, cb);
@@ -95,6 +99,10 @@ AppDispatcher.register(function (payload) {
       break;
     case appConstants.DELETE_EVENTS:
       deleteEvents(action.data.day, action.data.evtIndex);
+      plannerStore.emit(CHANGE_EVENT);
+      break;
+    case appConstants.ADD_TODO:
+      addToDo(action.data);
       plannerStore.emit(CHANGE_EVENT);
       break;
     default:

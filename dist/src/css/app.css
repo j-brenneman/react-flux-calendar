@@ -2309,7 +2309,7 @@ output {
   color: #555555; }
 
 .form-control {
-  display: block;
+  display: inline-block;
   width: 100%;
   height: 34px;
   padding: 6px 12px;
@@ -2319,7 +2319,6 @@ output {
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -10453,7 +10452,7 @@ Copyright (c) 2015 Daniel Eden
   overflow: auto;
   box-shadow: 10px 10px 2px #E2D4CB; }
   .taskContainer .taskSection {
-    border-bottom: 1px solid #ddd; }
+    border-bottom: 2px solid #ddd; }
     .taskContainer .taskSection .taskIcon {
       margin: 0 2%; }
     .taskContainer .taskSection .taskIcon:hover {
@@ -10462,14 +10461,26 @@ Copyright (c) 2015 Daniel Eden
     .taskContainer .taskSection h3 {
       display: inline-block; }
 
-.selectedDayHeader input {
+.selectedDayContainer .categoryOne {
+  border-bottom: 1px solid #337ab7; }
+  .selectedDayContainer .categoryOne input {
+    margin-right: 2%; }
+
+.selectedDayContainer input {
   text-align: center;
   display: inline-block;
   width: 32%;
   padding: 0.5%;
   margin: 0.6%; }
 
-.selectedDayHeader textarea {
+.selectedDayContainer .time {
+  display: inline-block;
+  width: 32%;
+  padding-left: 2%; }
+  .selectedDayContainer .time input {
+    width: 80%; }
+
+.selectedDayContainer textarea {
   text-align: center;
   width: 75%;
   padding: 1%;
@@ -10479,17 +10490,38 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #ddd;
   color: #A9A9A9; }
 
-.selectedDayHeader span {
+.selectedDayContainer .btnSpan {
   display: inline-block;
   font-size: 30px;
-  position: absolute;
-  top: 2.7em;
-  left: 12.05em;
+  position: relative;
+  top: -0.6em;
+  left: 1.2em;
   color: #A9A9A9; }
 
-.selectedDayHeader span:hover {
+.selectedDayContainer .btnSpan:hover {
   color: #337ab7;
   cursor: pointer; }
+
+.selectedDayContainer .toDoHeader {
+  margin-bottom: 0; }
+
+.selectedDayContainer .toDoPriority {
+  display: inline-block;
+  width: 55%;
+  position: relative;
+  top: 0.5em;
+  left: 1.5em; }
+  .selectedDayContainer .toDoPriority input {
+    width: 100%;
+    cursor: pointer; }
+  .selectedDayContainer .toDoPriority .prioritySpan {
+    font-size: 16px;
+    color: #A9A9A9;
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    left: 6em;
+    top: -0.5; }
 
 .dayEvents .dayEventContainer {
   border-bottom: 1px solid #337ab7;
@@ -10529,5 +10561,63 @@ Copyright (c) 2015 Daniel Eden
   color: #D75452;
   cursor: pointer; }
 
+.dayToDos .dayToDoContainer {
+  border-bottom: 1px solid #337ab7;
+  border-right: 1px solid #337ab7;
+  margin-bottom: 3%; }
+
+.dayToDos input {
+  text-align: center;
+  display: inline-block;
+  width: 30%;
+  padding: 0.5%;
+  margin: 0.6%; }
+
+.dayToDos textarea {
+  text-align: center;
+  width: 75%;
+  padding: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 0.75%;
+  border: 1px solid #ddd;
+  color: #A9A9A9; }
+
+.dayToDos .toDoMarker {
+  font-size: 18px;
+  margin-right: 1%;
+  color: #337ab7; }
+
+.dayToDos .deleteToDo {
+  display: inline-block;
+  font-size: 30px;
+  position: relative;
+  top: -0.6em;
+  left: 1.2em;
+  color: #A9A9A9; }
+
+.dayToDos .deleteToDo:hover {
+  color: #D75452;
+  cursor: pointer; }
+
+.dayToDos .toDoPriority {
+  display: inline-block;
+  width: 55%;
+  position: relative;
+  top: 0.5em;
+  left: 1.5em; }
+  .dayToDos .toDoPriority input {
+    width: 100%;
+    cursor: pointer; }
+  .dayToDos .toDoPriority .prioritySpan {
+    font-size: 16px;
+    color: #A9A9A9;
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    left: 6em;
+    top: -0.5; }
+
 body {
-  background: #F0E8E6; }
+  background: #F0E8E6;
+  -webkit-tap-highlight-color: transparent; }

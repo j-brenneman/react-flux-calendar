@@ -33,6 +33,9 @@ var Planner = React.createClass({
     },
     deleteEvents: function (e) {
       plannerActions.deleteEvents(e);
+    },
+    addToDo: function (e) {
+      plannerActions.addToDo(e);
     }
   },
   _onChange: function () {
@@ -48,7 +51,7 @@ var Planner = React.createClass({
             <Month currentMonth={this.state.currentMonth} handlers={this.handlers} />
           </div>
           <div className="col-md-4">
-            <TaskManager currentMonth={this.state.currentMonth} addEvents={this.handlers.addEvents} deleteEvents={this.handlers.deleteEvents} />
+            <TaskManager currentMonth={this.state.currentMonth} addEvents={this.handlers.addEvents} deleteEvents={this.handlers.deleteEvents} addToDo={this.handlers.addToDo} />
           </div>
         </div>
       </div>

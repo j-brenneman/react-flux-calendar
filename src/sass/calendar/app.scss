@@ -6,7 +6,11 @@
 @import "./taskManager";
 @import "./selectedDay";
 @import "./dayEvents";
+@import "./dayToDos";
 
 body {
   background: $background-cream;
+  // React slider
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
 }
