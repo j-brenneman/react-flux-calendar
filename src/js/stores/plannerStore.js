@@ -65,6 +65,14 @@ var addToDo = function (toDo) {
   current.items.todos[toDo.day] ? current.items.todos[toDo.day].push(toDo) : current.items.todos[toDo.day] = [toDo];
 }
 
+var deleteToDo = function (toDo, index) {
+  current.items.todos[toDo.day].splice(index, 1);
+}
+
+var toDoStatus = function (toDo) {
+  current.items.todos[toDo.day][toDo.index].completed ? current.items.todos[toDo.day][toDo.index].completed = false : current.items.todos[toDo.day][toDo.index].completed = true;
+}
+
 var plannerStore = objectAssign({}, EventEmitter.prototype, {
   addChangeListener: function (cb) {
     this.on(CHANGE_EVENT, cb);
@@ -103,6 +111,14 @@ AppDispatcher.register(function (payload) {
       break;
     case appConstants.ADD_TODO:
       addToDo(action.data);
+      plannerStore.emit(CHANGE_EVENT);
+      break;
+    case appConstants.TODO_STATUS:
+      toDoStatus(action.data);
+      plannerStore.emit(CHANGE_EVENT);
+      break;
+    case appConstants.DELETE_TODO:
+      deleteToDo(action.data.toDo, action.data.index);
       plannerStore.emit(CHANGE_EVENT);
       break;
     default:

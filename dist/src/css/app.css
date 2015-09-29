@@ -10424,9 +10424,15 @@ Copyright (c) 2015 Daniel Eden
       margin-top: 1%;
       margin-right: 2.5%;
       color: #000; }
-    .monthGrid td p {
+    .monthGrid td .calendarEvent {
       text-align: center;
       color: #337ab7; }
+    .monthGrid td .calendarToDoNC {
+      text-align: center;
+      color: #E54D42; }
+    .monthGrid td .calendarToDoC {
+      color: #28b162;
+      text-align: center; }
     .monthGrid td .scroll {
       height: 7.8em;
       display: flex;
@@ -10590,13 +10596,35 @@ Copyright (c) 2015 Daniel Eden
 
 .dayToDos .deleteToDo {
   display: inline-block;
-  font-size: 30px;
-  position: relative;
-  top: -0.6em;
-  left: 1.2em;
+  font-size: 28px;
+  vertical-align: bottom;
+  margin-left: 4%;
+  margin-bottom: 2%;
   color: #A9A9A9; }
 
 .dayToDos .deleteToDo:hover {
+  color: #D75452;
+  cursor: pointer; }
+
+.dayToDos .notCompletedToDo {
+  color: #D75452;
+  font-size: 30px;
+  vertical-align: top;
+  margin-left: 4%;
+  margin-top: 2%; }
+
+.dayToDos .notCompletedToDo:hover {
+  color: #2ECC71;
+  cursor: pointer; }
+
+.dayToDos .completedToDo {
+  color: #2ECC71;
+  font-size: 30px;
+  vertical-align: top;
+  margin-left: 3%;
+  margin-top: 2%; }
+
+.dayToDos .completedToDo:hover {
   color: #D75452;
   cursor: pointer; }
 

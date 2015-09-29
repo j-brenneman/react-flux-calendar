@@ -24,7 +24,8 @@ var ToDo = React.createClass({
                     </datalist>
                 </div>
                 <textarea defaultValue="Description" name="newToDo" defaultValue={toDo.description}></textarea>
-                <span className="deleteToDo glyphicon glyphicon-minus-sign" onClick={this.handleToDoSubmit}></span>
+                <span className={toDo.completed ? "completedToDo fa fa-check-square-o" : "notCompletedToDo fa fa-square-o"} onClick={this.props.toDoStatus.bind(this, {day: toDo.day, index: i})}></span>
+                <span className="deleteToDo glyphicon glyphicon-minus-sign" onClick={this.props.deleteToDo.bind(this, {toDo: toDo, index: i})}></span>
               </div>
             )
           }, this)

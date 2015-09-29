@@ -4,7 +4,9 @@ var appConstants = {
   SELECTED_DAY: 'SELECTED_DAY',
   ADD_EVENTS: 'ADD_EVENTS',
   DELETE_EVENTS: 'DELETE_EVENTS',
-  ADD_TODO: 'ADD_TODO'
+  ADD_TODO: 'ADD_TODO',
+  DELETE_TODO: 'DELETE_TODO',
+  TODO_STATUS: 'TODO_STATUS'
 };
 
 module.exports = appConstants;

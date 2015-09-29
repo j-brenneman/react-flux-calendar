@@ -12,7 +12,7 @@ var SelectedDay = React.createClass ({
   handleToDoSubmit: function () {
     var form = document.getElementsByName('newToDo');
     this.props.addToDo({
-      day: this.props.currentMonth.selectedDay, title: form[0].value, priority: form[1].value, description: form[2].value
+      day: this.props.currentMonth.selectedDay, title: form[0].value, priority: form[1].value, description: form[2].value, completed: false
     });
     console.log(form[0].value, form[1].value, form[2].value);
     form[0].value = null;

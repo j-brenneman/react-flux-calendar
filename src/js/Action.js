@@ -37,6 +37,18 @@ var plannerActions = {
       actionType: appConstants.ADD_TODO,
       data: toDo
     })
+  },
+  deleteToDo: function (toDo) {
+    AppDispatcher.handleViewAction({
+      actionType: appConstants.DELETE_TODO,
+      data: toDo
+    })
+  },
+  toDoStatus: function (toDo) {
+    AppDispatcher.handleViewAction({
+      actionType: appConstants.TODO_STATUS,
+      data: toDo
+    })
   }
 };
 

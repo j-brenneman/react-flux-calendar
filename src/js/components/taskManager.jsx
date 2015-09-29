@@ -8,7 +8,7 @@ var TaskManager = React.createClass({
   getInitialState: function () {
     return taskHelpers.toggleState
   },
-  handlers: taskHelpers.handlers,
+  toggleHandlers: taskHelpers.handlers,
 
   render: function () {
     return (
@@ -16,25 +16,25 @@ var TaskManager = React.createClass({
         <h1 className="taskHeader">Task Manager</h1>
         <div className="taskContainer">
           <div className="taskSection">
-            <div onClick={this.handlers.dateToggle.bind(this)}>
+            <div onClick={this.toggleHandlers.dateToggle.bind(this)}>
               <span className={"taskIcon glyphicon glyphicon-triangle-" + (this.state.dateToggle ? "bottom" : "right")}></span>
               <h3>{this.props.currentMonth.name +" "+ this.props.currentMonth.selectedDay +", "+ this.props.currentMonth.year}</h3>
             </div>
-            {this.state.dateToggle ? <SelectedDay currentMonth={this.props.currentMonth} addEvents={this.props.addEvents} addToDo={this.props.addToDo} /> : null}
+            {this.state.dateToggle ? <SelectedDay currentMonth={this.props.currentMonth} addEvents={this.props.handlers.addEvents} addToDo={this.props.handlers.addToDo} /> : null}
           </div>
           <div className="taskSection">
-            <div onClick={this.handlers.eventsToggle.bind(this)}>
+            <div onClick={this.toggleHandlers.eventsToggle.bind(this)}>
               <span className={"taskIcon glyphicon glyphicon-triangle-" + (this.state.eventsToggle ? "bottom" : "right")}></span>
               <h3>Events</h3>
             </div>
-            {this.state.eventsToggle ? <Events currentMonth={this.props.currentMonth} deleteEvents={this.props.deleteEvents} /> : null}
+            {this.state.eventsToggle ? <Events currentMonth={this.props.currentMonth} deleteEvents={this.props.handlers.deleteEvents} /> : null}
           </div>
           <div className="taskSection">
-            <div onClick={this.handlers.toDoToggle.bind(this)}>
+            <div onClick={this.toggleHandlers.toDoToggle.bind(this)}>
               <span className={"taskIcon glyphicon glyphicon-triangle-" + (this.state.toDoToggle ? "bottom" : "right")}></span>
               <h3>ToDo's</h3>
             </div>
-            {this.state.toDoToggle ? <ToDo currentMonth={this.props.currentMonth} /> : null}
+            {this.state.toDoToggle ? <ToDo currentMonth={this.props.currentMonth} toDoStatus={this.props.handlers.toDoStatus} deleteToDo={this.props.handlers.deleteToDo} /> : null}
           </div>
         </div>
       </section>

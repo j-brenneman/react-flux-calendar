@@ -31,9 +31,19 @@
       color: #000;
     }
 
-    p {
+    .calendarEvent {
       text-align: center;
       color: darken(#428bca, 6.5%);
+    }
+
+    .calendarToDoNC {
+      text-align: center;
+      color: #E54D42;
+    }
+
+    .calendarToDoC {
+      color: darken(#2ECC71, 6.5%);
+      text-align: center;
     }
 
     .scroll {

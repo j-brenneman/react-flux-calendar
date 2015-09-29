@@ -33,14 +33,40 @@
 
   .deleteToDo {
     display: inline-block;
-    font-size: 30px;
-    position: relative;
-    top: -0.6em;
-    left: 1.2em;
+    font-size: 28px;
+    vertical-align: bottom;
+    margin-left: 4%;
+    margin-bottom: 2%;
     color: #A9A9A9;
   }
 
   .deleteToDo:hover {
+    color: #D75452;
+    cursor: pointer;
+  }
+
+  .notCompletedToDo {
+    color: #D75452;
+    font-size: 30px;
+    vertical-align: top;
+    margin-left: 4%;
+    margin-top: 2%;
+  }
+
+  .notCompletedToDo:hover {
+    color: #2ECC71;
+    cursor: pointer;
+  }
+
+  .completedToDo {
+    color: #2ECC71;
+    font-size: 30px;
+    vertical-align: top;
+    margin-left: 3%;
+    margin-top: 2%;
+  }
+
+  .completedToDo:hover {
     color: #D75452;
     cursor: pointer;
   }

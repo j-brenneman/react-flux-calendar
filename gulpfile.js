@@ -17,8 +17,8 @@ var path = {
   OUT: 'build.js',
   DEST: 'dist',
   DEST_BUILD: 'dist/build',
-  DEST_SRC: 'dist/src',
-  DEST_CSS: 'dist/src/css',
+  DEST_SRC: '../server/public/javascripts',
+  DEST_CSS: '../server/public/stylesheets',
   ENTRY_POINT: './src/js/components/planner.jsx'
 };
 
