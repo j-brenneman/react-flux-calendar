@@ -12,14 +12,16 @@ var concat = require('gulp-concat');
 var path = {
   HTML: 'src/index.html',
   SASS: ['src/sass/calendar/app.scss', 'src/sass/calendar/_month.scss', 'src/sass/calendar/_taskManager.scss',
-         'src/sass/calendar/_selectedDay.scss', 'src/sass/calendar/_dayEvents.scss', 'src/sass/calendar/_dayToDos.scss'],
+         'src/sass/calendar/_selectedDay.scss', 'src/sass/calendar/_dayEvents.scss', 'src/sass/calendar/_dayToDos.scss',
+         'src/sass/calendar/_nav.scss'],
   MINIFIED_OUT: 'build.min.js',
   OUT: 'build.js',
   DEST: 'dist',
-  DEST_BUILD: 'dist/build',
+  DEST_BUILD: '../server/public/javascripts/build',
   DEST_SRC: '../server/public/javascripts',
   DEST_CSS: '../server/public/stylesheets',
-  ENTRY_POINT: './src/js/components/planner.jsx'
+  ENTRY_POINT: './src/js/components/planner.jsx',
+  BOOTSTRAP_JS: './src/sass/bootstrap-sass/javascripts/bootstrap/dropdown.js'
 };
 
 gulp.task('copy', function () {

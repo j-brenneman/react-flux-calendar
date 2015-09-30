@@ -1,10 +1,10 @@
 var Month = require('./month.jsx');
 var SelectedDay = require('./selectedDay.jsx');
 var TaskManager = require('./taskManager.jsx');
+var Nav = require('./nav.jsx');
 var plannerStore = require('../stores/plannerStore.js');
 var plannerActions = require('../Action.js');
 var monthAnimation = require('../assets/calendarConversions').monthAnimation;
-var serverCalls = require('../assets/serverCalls');
 
 var Planner = React.createClass({
 
@@ -55,8 +55,8 @@ var Planner = React.createClass({
   render: function() {
     return (
       <div className="animated zoomIn container-fluid">
+        <Nav />
         <div className="row text-center">
-          <div onClick={serverCalls.signUp}>Sign Up</div>
           <div className="col-md-8">
             <Month currentMonth={this.state.currentMonth} handlers={this.monthHandlers} />
           </div>
