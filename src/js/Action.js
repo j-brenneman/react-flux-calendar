@@ -49,6 +49,12 @@ var plannerActions = {
       actionType: appConstants.TODO_STATUS,
       data: toDo
     })
+  },
+  signUp: function (input) {
+    AppDispatcher.handleViewAction({
+      actionType: appConstants.SIGN_UP,
+      data: input
+    })
   }
 };
 

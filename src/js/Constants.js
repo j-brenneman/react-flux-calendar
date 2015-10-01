@@ -6,7 +6,8 @@ var appConstants = {
   DELETE_EVENTS: 'DELETE_EVENTS',
   ADD_TODO: 'ADD_TODO',
   DELETE_TODO: 'DELETE_TODO',
-  TODO_STATUS: 'TODO_STATUS'
+  TODO_STATUS: 'TODO_STATUS',
+  SIGN_UP: 'SIGN_UP'
 };
 
 module.exports = appConstants;

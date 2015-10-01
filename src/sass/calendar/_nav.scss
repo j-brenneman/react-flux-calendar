@@ -2,9 +2,19 @@
   display: inline-block;
   float: right;
   margin-top: 1%;
-  .dropdown-menu {
-    left: -378%;
-    text-align: center;
-    
+}
+
+.open > .dropdown-menu {
+  display: inline-flex;
+  left: -940%;
+  top: 50%;
+
+  li {
+    border-right: solid 1px black;
+    cursor: pointer;
+  }
+
+  .lastNavButton {
+    border: none;
   }
 }

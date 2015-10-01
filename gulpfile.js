@@ -13,7 +13,7 @@ var path = {
   HTML: 'src/index.html',
   SASS: ['src/sass/calendar/app.scss', 'src/sass/calendar/_month.scss', 'src/sass/calendar/_taskManager.scss',
          'src/sass/calendar/_selectedDay.scss', 'src/sass/calendar/_dayEvents.scss', 'src/sass/calendar/_dayToDos.scss',
-         'src/sass/calendar/_nav.scss'],
+         'src/sass/calendar/_nav.scss', 'src/sass/calendar/_account.scss'],
   MINIFIED_OUT: 'build.min.js',
   OUT: 'build.js',
   DEST: 'dist',

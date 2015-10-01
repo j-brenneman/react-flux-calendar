@@ -2,6 +2,7 @@ var Month = require('./month.jsx');
 var SelectedDay = require('./selectedDay.jsx');
 var TaskManager = require('./taskManager.jsx');
 var Nav = require('./nav.jsx');
+var SignUp = require('./signUp.jsx');
 var plannerStore = require('../stores/plannerStore.js');
 var plannerActions = require('../Action.js');
 var monthAnimation = require('../assets/calendarConversions').monthAnimation;
@@ -13,6 +14,7 @@ var Planner = React.createClass({
     plannerActions.newMonth([now[1], now[3], now[2]]);
     return {
       currentMonth: plannerStore.getCurrentMonth(),
+      signUpToggle: false
     }
   },
   componentDidMount: function () {
@@ -47,6 +49,14 @@ var Planner = React.createClass({
       plannerActions.toDoStatus(e);
     }
   },
+  signUp: function (e) {
+    plannerActions.signUp(e);
+  },
+  signUpPop: function () {
+    this.setState({
+      signUpToggle: this.state.signUpToggle ? this.state.signUpToggle = false : this.state.signUpToggle = true
+    })
+  },
   _onChange: function () {
     this.setState({
       currentMonth: plannerStore.getCurrentMonth()
@@ -55,7 +65,8 @@ var Planner = React.createClass({
   render: function() {
     return (
       <div className="animated zoomIn container-fluid">
-        <Nav />
+        {this.state.signUpToggle ? <SignUp currentMonth={this.state.currentMonth} close={this.signUpPop} submitSignUp={this.signUp} /> : null}
+        <Nav currentMonth={this.state.currentMonth} handlers={this.signUpPop} />
         <div className="row text-center">
           <div className="col-md-8">
             <Month currentMonth={this.state.currentMonth} handlers={this.monthHandlers} />
@@ -69,6 +80,5 @@ var Planner = React.createClass({
   }
 
 });
-
 
 React.render(<Planner />, document.getElementById('app'));

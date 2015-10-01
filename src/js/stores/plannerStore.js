@@ -4,6 +4,7 @@ var objectAssign = require('react/lib/Object.assign');
 var EventEmitter = require('events').EventEmitter;
 var calendar = require('node-calendar');
 var assets = require('../assets/calendarConversions');
+var serverCalls = require('../assets/serverCalls');
 
 var CHANGE_EVENT = 'change';
 
@@ -73,6 +74,12 @@ var toDoStatus = function (toDo) {
   current.items.todos[toDo.day][toDo.index].completed ? current.items.todos[toDo.day][toDo.index].completed = false : current.items.todos[toDo.day][toDo.index].completed = true;
 }
 
+var signUp = function (input) {
+  serverCalls.signUp(input).then(function (res) {
+    console.log(res);
+  })
+}
+
 var plannerStore = objectAssign({}, EventEmitter.prototype, {
   addChangeListener: function (cb) {
     this.on(CHANGE_EVENT, cb);
@@ -119,6 +126,10 @@ AppDispatcher.register(function (payload) {
       break;
     case appConstants.DELETE_TODO:
       deleteToDo(action.data.toDo, action.data.index);
+      plannerStore.emit(CHANGE_EVENT);
+      break;
+    case appConstants.SIGN_UP:
+      signUp(action.data);
       plannerStore.emit(CHANGE_EVENT);
       break;
     default:

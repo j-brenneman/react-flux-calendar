@@ -1,8 +1,7 @@
 var serverCalls = {
-  signUp: function () {
-    $.post('/new_account', {username: 'Jake', password: 'hello123', passwordCheck: 'hello123', calendar: {}}).then(function (data) {
-      console.log('client', data.user);
-    })
+  signUp: function (input) {
+    console.log(input);
+    return $.post('/new_account', input)
   },
   login: function (input) {
     $.post('/login').then(function (data) {

@@ -1,0 +1,52 @@
+.accountOverlay {
+  z-index: 1;
+  background-color: #428BCA;
+  height: 60em;
+  width: 102%;
+  opacity: 0.8;
+  position: absolute;
+  left: -0.3em;
+}
+
+.signUp {
+  opacity: 0.9;
+  display: inline-block;
+  background-color: $background-cream;
+  position: absolute;
+  left: 40em;
+  top: 10em;
+  z-index: 2;
+  width: 20%;
+  height: 40%;
+  border-radius: 1%;
+  border: 1px solid #ddd;
+
+  h2 {
+    text-align: center;
+    padding-bottom: 4%;
+    color: darken(#A9A9A9, 40%);
+    display: inline-block;
+    width: 90%;
+  }
+
+  h4 {
+    color: darken(#A9A9A9, 40%);
+    display: inline-block;
+    width: 5%;
+    vertical-align: text-top;
+    float: right;
+    margin: 2%;
+  }
+
+  h4:hover {
+    cursor: pointer;
+    color: #428BCA;
+  }
+
+  input, button {
+    display: block;
+    margin: 5% auto;
+    text-align: center;
+  }
+
+}
