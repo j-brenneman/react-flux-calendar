@@ -5,6 +5,12 @@
 
 .calendarHeader {
   margin-bottom: 2%;
+
+  .userName {
+    display: inline-block;
+    vertical-align: text-top;
+    float: left;
+  }
 }
 
 .monthGrid {

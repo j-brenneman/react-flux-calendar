@@ -4,12 +4,12 @@ var objectAssign = require('react/lib/Object.assign');
 var EventEmitter = require('events').EventEmitter;
 var calendar = require('node-calendar');
 var assets = require('../assets/calendarConversions');
-var serverCalls = require('../assets/serverCalls');
 
 var CHANGE_EVENT = 'change';
 
 var years = {};
 var current = {};
+var user = {};
 
 function Month(date) {
   this.name = assets.monthConversion[date[0]][1];
@@ -74,11 +74,10 @@ var toDoStatus = function (toDo) {
   current.items.todos[toDo.day][toDo.index].completed ? current.items.todos[toDo.day][toDo.index].completed = false : current.items.todos[toDo.day][toDo.index].completed = true;
 }
 
-var signUp = function (input) {
-  serverCalls.signUp(input).then(function (res) {
-    console.log(res);
-  })
+var setUser = function (input) {
+  user = input.user;
 }
+
 
 var plannerStore = objectAssign({}, EventEmitter.prototype, {
   addChangeListener: function (cb) {
@@ -90,6 +89,9 @@ var plannerStore = objectAssign({}, EventEmitter.prototype, {
   getCurrentMonth: function () {
     console.log(years, current);
     return current;
+  },
+  getCurrentUser: function () {
+    return user;
   }
 });
 
@@ -128,8 +130,8 @@ AppDispatcher.register(function (payload) {
       deleteToDo(action.data.toDo, action.data.index);
       plannerStore.emit(CHANGE_EVENT);
       break;
-    case appConstants.SIGN_UP:
-      signUp(action.data);
+    case appConstants.SET_USER:
+      setUser(action.data);
       plannerStore.emit(CHANGE_EVENT);
       break;
     default:

@@ -6,6 +6,7 @@ var SignUp = require('./signUp.jsx');
 var plannerStore = require('../stores/plannerStore.js');
 var plannerActions = require('../Action.js');
 var monthAnimation = require('../assets/calendarConversions').monthAnimation;
+var serverCalls = require('../assets/serverCalls');
 
 var Planner = React.createClass({
 
@@ -14,7 +15,8 @@ var Planner = React.createClass({
     plannerActions.newMonth([now[1], now[3], now[2]]);
     return {
       currentMonth: plannerStore.getCurrentMonth(),
-      signUpToggle: false
+      signUpToggle: false,
+      errors: null
     }
   },
   componentDidMount: function () {
@@ -50,7 +52,19 @@ var Planner = React.createClass({
     }
   },
   signUp: function (e) {
-    plannerActions.signUp(e);
+    serverCalls.signUp(e).then(function (res) {
+      if(res.user instanceof Array){
+        this.setState({
+          errors: res.user
+        })
+      } else {
+        plannerActions.setUser(res);
+        this.signUpPop();
+        this.setState({
+          errors: null
+        })
+      }
+    }.bind(this))
   },
   signUpPop: function () {
     this.setState({
@@ -59,17 +73,18 @@ var Planner = React.createClass({
   },
   _onChange: function () {
     this.setState({
-      currentMonth: plannerStore.getCurrentMonth()
+      currentMonth: plannerStore.getCurrentMonth(),
+      user: plannerStore.getCurrentUser()
     })
   },
   render: function() {
     return (
       <div className="animated zoomIn container-fluid">
-        {this.state.signUpToggle ? <SignUp currentMonth={this.state.currentMonth} close={this.signUpPop} submitSignUp={this.signUp} /> : null}
+        {this.state.signUpToggle ? <SignUp currentMonth={this.state.currentMonth} close={this.signUpPop} submitSignUp={this.signUp} errors={this.state.errors} /> : null}
         <Nav currentMonth={this.state.currentMonth} handlers={this.signUpPop} />
         <div className="row text-center">
           <div className="col-md-8">
-            <Month currentMonth={this.state.currentMonth} handlers={this.monthHandlers} />
+            <Month currentMonth={this.state.currentMonth} handlers={this.monthHandlers} user={this.state.user} />
           </div>
           <div className="col-md-4">
             <TaskManager currentMonth={this.state.currentMonth} handlers={this.taskHandlers} />

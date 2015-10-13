@@ -7,7 +7,7 @@ var appConstants = {
   ADD_TODO: 'ADD_TODO',
   DELETE_TODO: 'DELETE_TODO',
   TODO_STATUS: 'TODO_STATUS',
-  SIGN_UP: 'SIGN_UP'
+  SET_USER: 'SET_USER'
 };
 
 module.exports = appConstants;

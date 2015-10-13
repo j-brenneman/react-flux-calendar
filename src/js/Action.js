@@ -50,10 +50,10 @@ var plannerActions = {
       data: toDo
     })
   },
-  signUp: function (input) {
+  setUser: function (user) {
     AppDispatcher.handleViewAction({
-      actionType: appConstants.SIGN_UP,
-      data: input
+      actionType: appConstants.SET_USER,
+      data: user
     })
   }
 };

@@ -6,6 +6,7 @@ var Month = React.createClass({
     return (
       <section>
         <div className="calendarHeader">
+          {this.props.user ? <h4 className="userName">{this.props.user.username}</h4> : null}
           <button className="btn btn-primary" onClick={this.props.handlers.displayMonth}>Back</button>
           <div className="monthName">
             <h1>{this.props.currentMonth.name}</h1>
